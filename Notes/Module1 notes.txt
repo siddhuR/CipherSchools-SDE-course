@@ -8,3 +8,18 @@ Declaring a variable --> format : [ datatype _ "Name" ] => int _b
 Conditional Statements:
 if a>b and c>d then, e=a+b+c+d
 
+
+--------------------------
+functions:
+
+void
+{
+cout...
+return ;
+}
+
+--------------------------
+the variables which we declare in the functions comes under local variables.
+--> they can have different values.
+
+-------------------------
