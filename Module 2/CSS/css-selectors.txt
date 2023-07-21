@@ -1,0 +1,17 @@
+1. Simple Selector
+2. Combinationn Selector
+3. Pseduo-class Selector
+4. Pseduo-element Selector
+5. Attribute Selector
+
+--> Simple Selector
+1. Id Selector
+2. Class Selector
+3. Universal Selector
+4. Grouping Selectors
+
+--> Combination Selector
+1. Descendant Selector
+2. Child Selector
+3. Adjacent Sibling Selector
+4. General Sibling Selector

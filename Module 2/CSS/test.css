@@ -1,0 +1,60 @@
+/* Simple Selectors */
+/* -1-id selector */
+#myParagraph {
+    text-align: center
+}
+
+/* -2-class selector */
+.center-paragraph {
+    text-align: center
+}
+
+/* -3-universal selector ( this will apply for whole file)*/
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* -4-Grouping Selectors */
+h1, .center-paragraph, p {
+    text-align: center;
+    color: brown;
+}
+
+/* Combination Selectors */
+/* This includes more than one simple selectors */
+
+div p {
+    background-color: yellow;
+}
+
+div > p {
+    background-color: cyan;
+}
+
+/* Adjacent sibling selector */
+
+div + p {
+    background-color: pink;
+}
+
+/* General Sibling Selector */
+
+div ~ p {
+    background-color: pink;
+}
+
+/* psudeo class selector */
+div ~ p:hover {
+    background-color: green;
+}
+
+/* psudeo element selector */
+div ~ p::first-letter {
+    color: blue;
+}
+
+/* Attribute selector */
+a[target] {
+    background-color: darkorange;
+}
+
