@@ -6,10 +6,11 @@
 body{
    display: flex;
    width: 100%;
-   height: 100%;
+   min-height: 100%;
    align-items: center;
    flex-direction: column;
    justify-content: center; 
+   /* border: solid black; */
 }
 
 .title{
@@ -46,6 +47,8 @@ body{
     display: flex;
     width: 75%;
     margin: 1em 0;
+    justify-content: left;
+    /* border: solid black; */
 }
 
 #todo-list{
