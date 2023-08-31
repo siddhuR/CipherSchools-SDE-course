@@ -35,13 +35,18 @@ const ToDoScreen = () => {
                     setTaskList([...taskList, {
                         title: "Go to Gym",
                         description: "Going to gym is good for muscle growth.",
+                        createdDate: new Date(),
                     },
                     ]);
                 }}
                     className="ui secondary button">Add Task</button>
-                {taskList.map((task) => (
-                    <Task />
-                ))}
+                <section>
+                <div class="ui cards">
+                    {taskList.map((task, index) => (
+                        <Task task={task} key=(index/>
+                    ))}
+                </div>
+                </section>
             </div>
         </div >
     );
