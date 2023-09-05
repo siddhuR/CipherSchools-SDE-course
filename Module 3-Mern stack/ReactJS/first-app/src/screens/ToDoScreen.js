@@ -24,31 +24,36 @@
 
 import { useState } from "react";
 import Task from "../components/Task";
+import AddTask from "../components/AddTask";
 
 const ToDoScreen = () => {
     const [taskList, setTaskList] = useState([]);
     return (
-        <div className="screen" >
-            <h1 className="ui heading center">To Do List </h1>
-            <div>
-                <button onClick={() => {
-                    setTaskList([...taskList, {
-                        title: "Go to Gym",
-                        description: "Going to gym is good for muscle growth.",
-                        createdDate: new Date(),
-                    },
-                    ]);
-                }}
-                    className="ui secondary button">Add Task</button>
-                <section>
-                <div class="ui cards">
-                    {taskList.map((task, index) => (
-                        <Task task={task} key=(index/>
-                    ))}
+        <>
+            <div className="screen" >
+                <h1 className="ui heading center">To Do List </h1>
+                <div>
+                    <button onClick={() => {
+                        setTaskList([...taskList, {
+                            title: "Go to Gym",
+                            description: "Going to gym is good for muscle growth.",
+                            createdDate: new Date(),
+                        },
+                        ]);
+                    }}
+                        className="ui secondary button">Add Task</button>
+                    <section>
+                        <div class="ui cards">
+                            {taskList.map((task, index) => (
+                                <Task task={task} key={index} />
+                            ))}
+                        </div>
+                    </section>
                 </div>
-                </section>
-            </div>
-        </div >
+                <AddTask />
+            </div >
+
+        </>
     );
 };
 

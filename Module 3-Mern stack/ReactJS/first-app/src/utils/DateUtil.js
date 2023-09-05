@@ -1,10 +1,10 @@
-const dateFormatter = new Intl.DateFormat("en-IN", {
-    dateStyle: "medium",
+var dateFormatter = new Intl.DateTimeFormat("en-IN", {
+    //dateStyle: "medium",
     hour12: true,
     hour: "numeric",
     minute: "numeric",
     year:  "numeric",
-    month: "shorts",
+    month: "short",
     day:"2-digit"
  });
 export const formatDate = (data)=> dateFormatter.format(data);
