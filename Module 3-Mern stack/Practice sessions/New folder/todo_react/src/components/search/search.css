@@ -1,0 +1,27 @@
+.search-main-container{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.search-main-container>div{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center ;
+}
+.search-container{
+    width: 60%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.search{
+    width: 75%;
+    padding: 10px;
+    font-size: 15px;
+}
+.search-container>button{
+    width: 20%;
+}

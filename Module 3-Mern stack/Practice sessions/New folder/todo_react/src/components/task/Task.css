@@ -1,0 +1,32 @@
+.task-main-container{
+    padding: 20px;
+}
+.task-card-container{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+.task-card{
+    width: 75%;
+    border: solid 1px black;
+    padding: 10px;
+}
+.task-btn-container{
+    width: 20%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.task-btn-container>button{
+    width: 30%;
+}
+.task-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.task-heading{
+    text-align: start;
+    width: 85%;
+}
