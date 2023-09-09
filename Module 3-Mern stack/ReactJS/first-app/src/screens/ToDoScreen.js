@@ -22,16 +22,19 @@
 //     }
 // }
 
-import { useState } from "react";
+import { useContext } from "react";
 import Task from "../components/Task";
 import AddTask from "../components/AddTask";
+import TaskContext from "../context/TaskContext";
+import { useNavigate } from "react-router-dom";
 
 const ToDoScreen = () => {
-    const [taskList, setTaskList] = useState([]);
+    const { taskList } = useContext(TaskContext);
+    const navigate = useNavigate();
 
-    let addNewTask = (task) => {
-        setTaskList([...taskList, {...task, createdDate: new Date()}]);
-    };
+    // let addNewTask = (task) => {
+    //     setTaskList([...taskList, {...task, createdDate: new Date()}]);
+    // };
 
 
     return (
@@ -40,12 +43,13 @@ const ToDoScreen = () => {
                 <h1 className="ui heading center">To Do List </h1>
                 <div>
                     <button onClick={() => {
-                        setTaskList([...taskList, {
-                            title: "Go to Gym",
-                            description: "Going to gym is good for muscle growth.",
-                            createdDate: new Date(),
-                        },
-                        ]);
+                        navigate("/add-task");
+                        // setTaskList([...taskList, {
+                        //     title: "Go to Gym",
+                        //     description: "Going to gym is good for muscle growth.",
+                        //     createdDate: new Date(),
+                        // },
+                        // ]);
                     }}
                         className="ui secondary button">Add Task</button>
                     <section>
@@ -60,6 +64,7 @@ const ToDoScreen = () => {
             </div >
 
         </>
+
     );
 };
 
