@@ -49,14 +49,14 @@ const ToDoScreen = () => {
                     }}
                         className="ui secondary button">Add Task</button>
                     <section>
-                        <div class="ui cards">
+                        <div className="ui cards">
                             {taskList.map((task, index) => (
                                 <Task task={task} key={index} />
                             ))}
                         </div>
                     </section>
                 </div>
-                <AddTask />
+                <AddTask onSubmit={addNewTask}/>
             </div >
 
         </>
