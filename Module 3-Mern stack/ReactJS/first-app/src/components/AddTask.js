@@ -18,7 +18,7 @@ const AddTask = () => {
         setTask({
             ...task, [e.target.name]: e.target.value,
         });
-    }
+    };
 
     let onFormSubmit = (e) => {
         e.preventDefault();
