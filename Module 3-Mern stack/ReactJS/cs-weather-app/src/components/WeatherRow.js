@@ -1,4 +1,4 @@
-const WhetherRow = () => {
+const WeatherRow = () => {
     return (
         <tr>
             <td>01 Jan, 2023</td>
@@ -10,4 +10,4 @@ const WhetherRow = () => {
     );
 };
 
-export default WhetherRow;
+export default WeatherRow;

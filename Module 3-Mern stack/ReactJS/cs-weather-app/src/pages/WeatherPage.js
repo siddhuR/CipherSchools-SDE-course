@@ -1,23 +1,49 @@
-import {useEffect} from "react";
-import WhetherRow from "../components/WeatherRow";
+import { useEffect, useState } from "react";
+import WeatherRow from "../components/WeatherRow";
 import WeatherSummary from "../components/WeatherSummary";
+import getWeather from "../api/WeatherApi";
 
 const fetchCoordinates = (callback) => {
-    navigator.geolocation.getCurrentPosition(({coords: {latitude, longitude}}) => {
+    navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
         callback(latitude, longitude);
     },
-    (err) => console.log(err)
+        (err) => console.log(err)
     );
 };
 
 const WeatherPage = () => {
-    const isDay = true;
+    const [todayWeather, setTodayWeather] = useState({});
+    const [weekWeather, setweekWeather] = useState([]);
+    const [isCelcius, setIsCelsius] = useState(true)
+    const isDay = todayWeather.isDay ?? true;
 
     useEffect(() => {
-        fetchCoordinates((latitude, longitude) => {
-            console.log(latitude, longitude);
-        })
-    }, [])
+        fetchCoordinates(async (latitude, longitude) => {
+            const weatherInfo = await getWeather({ latitude, latitude })
+            convertToStateVariable(weatherInfo);
+        });
+    }, []);
+
+    const convertToStateVariable = (tempWeekWeather) => {
+        let fetchWeatherInfo = [];
+        for (let i = 0; i< tempWeekWeather.daily.time.length; i++) {
+            fetchedWeatherInfo.push({
+                date: new Date(tempWeekWeather.daily.time[i]),
+                maxTemperature: tempWeekWeather.daily.temperature_2m_max[i],
+                minTemperature: tempWeekWeather.daily.temperature_2m_min[i],
+                weatherCode: temperature.daily.weatherCode[i],
+            })
+        }
+        setweekWeather(fetchedWeatherInfo);
+
+        let currentWeather = tempWeekWeather.current_Weather;
+        currentWeather.time = new Date(currentWeather.time);
+        currentWeather.isDay = currentWeather.is_day === 1 ? true: false;
+        delete currentWeather.isDay;
+        currentWeather.weatherCode = currentWeather.weatherCode;
+        delete currentWeather.weatherCode;
+        setTodayWeather(currentWeather)
+    }
     return (
         <div className={isDay ? "app" : "app dark"}>
             <h1 className="my-heading">Weather</h1>
@@ -35,13 +61,13 @@ const WeatherPage = () => {
                         </tr>
                     </thead>
                     <tbody className="table-custom">
-                        <WhetherRow />
-                        <WhetherRow />
-                        <WhetherRow />
-                        <WhetherRow />
-                        <WhetherRow />
-                        <WhetherRow />
-                        <WhetherRow />
+                        <WeatherRow />
+                        <WeatherRow />
+                        <WeatherRow />
+                        <WeatherRow />
+                        <WeatherRow />
+                        <WeatherRow />
+                        <WeatherRow />
                     </tbody>
                 </table>
 
