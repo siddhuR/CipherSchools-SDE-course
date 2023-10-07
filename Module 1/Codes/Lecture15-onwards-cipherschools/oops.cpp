@@ -41,12 +41,12 @@ class Vehicle
     int Capacity;
     int mileage;
 
-    public:
+    //public:
 
-    void calculatemileage()
-    {
-        cout<<"The mileage is "<<mileage<<endl;
-    }
+    // void calculatemileage()
+    // {
+    //     cout<<"The mileage is "<<mileage<<endl;
+    // }
 
 };
 
@@ -62,28 +62,58 @@ class SchoolBus: public Vehicle
 
     
 
-    void printnameofschool()
+    void name()
     {
-        cout<<"The name of the school is "<<name;
+        cout<<"hello"<<name;
     }
 };
 
-class Car: public Vehicle
+class Car: private Vehicle
 {
-    private:
+    public:
 
     int number_airbags;
     int ac_consumption;
 
+    public:
+    void printname(int milage)
+    {
+        //this->mileage = milage;
+        cout<<name;
+    }
+
+    void printname()
+    {
+        cout<<"The mileage is "<<mileage<<endl;
+    }
+
 
 };
 
+class SUV: public Car
+{
+    public:
+
+    int four_Wheel_drive;
+};
+
+
 int main()
 {
+    // SUV a;
+
+    // a.set_milage(50);
+
+    // a.calculatemileage();
+
     Car a;
+    SchoolBus b;
 
-    a.mileage = 50;
+    a.name = "Suzuki";
+    b.name = "Toyota";
 
-    a.calculatemileage();
+    a.printname();
+    cout<<endl;
+    b.printname();
 
 }
