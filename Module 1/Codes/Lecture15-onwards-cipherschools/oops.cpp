@@ -109,11 +109,11 @@ int main()
     Car a;
     SchoolBus b;
 
-    a.name = "Suzuki";
-    b.name = "Toyota";
+    // a.name = "Suzuki";
+    // b.name = "Toyota";
 
-    a.printname();
-    cout<<endl;
-    b.printname();
+    // a.printname();
+    // cout<<endl;
+    // b.printname();
 
 }
