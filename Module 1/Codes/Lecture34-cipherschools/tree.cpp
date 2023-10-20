@@ -19,7 +19,7 @@ class Node
     }
 };
 
-void buildTree(Node * root) {
+void buildTree(Node * &root) {
     // this is the starrt of the creation of a binary tree
     
     int var;
@@ -38,12 +38,25 @@ void buildTree(Node * root) {
     buildTree(root->right);
 }
 
+// first we will look at pre-order transversal
+
+// preorder transversal implies that we first transverse the node than the elements left of it and then the elements to the right of it
+
+void printPreordertransversal(Node * root)
+{
+    cout<<root->data<<" ";
+    printPreordertransversal(root->left);
+    printPreordertransversal(root->right);
+}
+
+
 int main() {
     /// now since we have created a node let us start with a creation of a binary tree
     
-    Node * root;
+    Node * root = NULL;
 
     buildTree(root);
+    printPreordertransversal(root);
 
     return 0;
 
