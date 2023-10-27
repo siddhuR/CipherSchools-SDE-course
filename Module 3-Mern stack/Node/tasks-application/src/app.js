@@ -1,32 +1,11 @@
-//SAMPLE CHECK
-
-// const addNumbers = (...args) => {
-//   let sum = 0;
-//   args.forEach((arg) => (sum += arg));
-//   return sum;
-// };
-
-// console.log(addNumbers(4, 5, 1, -2, 10, 5));
-
-// ----------------------------------------------
-/*
-const http = require("http");
-
-const server = http.createServer((req, res) => {
-  res.write("This is some response from your first node js server");
-  res.end();
-});
-
-server.listen(8080, () => {
-  console.log(`Server is running.`);
-});
-*/
 require("./appMongoose");
 const express = require("express");
 const Task = require("./models/Task");
+const userRouter = require("./routes/user-routes");
 const app = express();
 
 app.use(express.json());
+app.use("/user", userRouter);
 
 app.get("/", (req, res) => {
   res.send("This is some response from your first node js server");
