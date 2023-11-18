@@ -1,5 +1,5 @@
 const InputValidationException = require("../exceptions/inputValidationException");
-const User = require("../models/user");
+const User = require("../models/User");
 
 const addNewUser = async (user) => {
   try {
@@ -14,6 +14,14 @@ const addNewUser = async (user) => {
   }
 };
 
+const loginUser = async ({ email, password }) => {
+  const user = await User.findByEmailAndPasswordForAuth(email, password);
+  console.log(`User with email: ${email} has logged in`);
+  const token = user.generateToken();
+  return { user, token };
+};
+
 module.exports = {
   addNewUser,
+  loginUser,
 };

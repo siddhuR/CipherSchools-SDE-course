@@ -1,6 +1,7 @@
 const { model, Schema } = require("mongoose");
 const { jsEmail } = require("validator");
 const { encryptPassword, checkPassword } = require("../bcrypt");
+const { generateToken } = require("../jwt");
 
 const UserSchema = new Schema(
   {
