@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { loginUser } from "../utils/AuthUtil";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignUpScreen = () => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
