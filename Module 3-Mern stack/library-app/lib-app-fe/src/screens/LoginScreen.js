@@ -1,10 +1,28 @@
 import { useState } from "react";
+import { loginUser } from "../utils/AuthUtil";
+import { useNavigate } from "react-router-dom";
 
 const LoginScreen = () => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
+  const Navigate = useNavigate();
+
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
+    console.log(credentials);
+    if (validateCredentials()) {
+      const data = await loginUser(credentials);
+      if (data.user.type === "LIBRARIAN") {
+        Navigate("/librarian");
+      } else {
+        Navigate("/student");
+      }
+    }
   };
+
+  const validateCredentials = () => {
+    return credentials.email?.length && credentials.password?.length;
+  };
+
   const handleInputChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
@@ -21,6 +39,7 @@ const LoginScreen = () => {
             placeholder="Email"
             value={credentials.email}
             onChange={handleInputChange}
+            required={true}
           />
         </div>
         <div className="field">
@@ -31,6 +50,8 @@ const LoginScreen = () => {
             placeholder="Password"
             value={credentials.password}
             onChange={handleInputChange}
+            required={true}
+            minLength={8}
           />
         </div>
 

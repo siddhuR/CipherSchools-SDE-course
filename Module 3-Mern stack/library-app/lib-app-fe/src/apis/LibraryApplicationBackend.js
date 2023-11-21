@@ -1,11 +1,11 @@
 import axios from "axios";
-import { getUserToken } from "../utils/LoginUtils";
+import { getUserToken } from "../utils/AuthUtil";
 
-export const TaskApplicationBackend = axios.create({
+const LibraryApplicationBackend = axios.create({
   baseURL: `http://localhost:8080`,
 });
 
-TaskApplicationBackend.interceptors.request.use(
+LibraryApplicationBackend.interceptors.request.use(
   (config) => {
     const token = getUserToken();
     if (token) {
@@ -18,3 +18,5 @@ TaskApplicationBackend.interceptors.request.use(
     return Promise.reject(error);
   }
 );
+
+export default LibraryApplicationBackend;
