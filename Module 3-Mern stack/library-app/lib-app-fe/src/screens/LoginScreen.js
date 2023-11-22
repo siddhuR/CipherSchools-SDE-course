@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { loginUser } from "../utils/AuthUtil";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginScreen = () => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
@@ -30,6 +30,9 @@ const LoginScreen = () => {
   return (
     <section className="app-section">
       <h1>Login</h1>
+      <span>
+        Do not have an account? Signup <Link to={"/signup"}>here</Link>
+      </span>
       <form className="ui form" onSubmit={handleLoginSubmit}>
         <div className="field">
           <label>Email</label>

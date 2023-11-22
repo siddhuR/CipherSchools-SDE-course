@@ -1,4 +1,5 @@
-import { loginUser } from "../apis/user-api";
+import { useActionData, useRouteLoaderData } from "react-router-dom";
+import { loginUser, signUpUser } from "../apis/user-api";
 
 const getUserToken = () => {
   return localStorage.getItem("token");
@@ -15,4 +16,14 @@ const loginUserFunction = async ({ email, password }) => {
   return data.user;
 };
 
-export { getUserToken, loginUserFunction as loginUser };
+const signupUserFunction = async (userData) => {
+  const data = await signUpUser(userData);
+  setUser(data);
+  return data.user;
+};
+
+export {
+  getUserToken,
+  loginUserFunction as loginUser,
+  signupUserFunction as signUpUser,
+};
