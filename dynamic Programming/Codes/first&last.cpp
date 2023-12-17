@@ -51,9 +51,7 @@ vector<int> firstAndLastOccurrence(vector<int> &nums,int target) {
     return {first, last};
 
 }
-
-
-
 int main() {
+    int n;
 
 }
