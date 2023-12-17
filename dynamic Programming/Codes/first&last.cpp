@@ -53,5 +53,6 @@ vector<int> firstAndLastOccurrence(vector<int> &nums,int target) {
 }
 int main() {
     int n;
+    cout <<"H";
 
 }
